@@ -1,10 +1,11 @@
 from fastapi import FastAPI
 from app.core.config import setting
+from app.graph.investigation_graph import build_investigation_graph
 from app.models.base import Base
 from app.models.investigation import Investigation
 from app.core.database import engine
 from pydantic import BaseModel
-from app.graph.workflow import investigation_graph
+from app.graph.workflow import graph
 from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI(
     title=setting.app_name,
@@ -18,6 +19,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+
 
 Base.metadata.create_all(bind=engine)
 
@@ -37,19 +39,21 @@ def health():
         "status" : "Ok"
     }
 
-@app.post("/api/investigations")
-async def create_investigation(request:InvestigationRequest):
-    result = await investigation_graph.ainvoke({
+@app.post("/investigate")
+def investigate(
+    request: InvestigationRequest
+):
+
+    initial_state = {
         "query": request.query,
-        "web_results": None,
-        "news_results": None,
-        "finance_results": None,
-        "response": "",
-    })
+        "errors": []
+    }
+
+    result = graph.invoke(initial_state)
 
     return {
         "query": request.query,
-        "web_results": result["web_results"],
-        "news_results": result["news_results"],
-        "finance_results": result["finance_results"],
+        "company": result.get("company"),
+        "report": result.get("final_report"),
+        "errors": result.get("errors", [])
     }

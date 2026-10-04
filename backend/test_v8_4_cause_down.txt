@@ -1,0 +1,250 @@
+
+======================================================================
+FININVESTIGATOR - VERSION 8.4 GRAPH TEST
+======================================================================
+
+Query: Why did NVIDIA stock fall?
+[Supervisor] Query: Why did NVIDIA stock fall?
+[Supervisor] Company: NVIDIA
+[Supervisor] Intent: cause_analysis
+[Supervisor] Price direction: down
+[Company Agent] Investigating NVIDIA
+[Market Agent] Resolving stock identity for NVIDIA
+[Market Agent] Resolved: NVIDIA Corp | NVDA | NASDAQ
+[Market Agent] Finance query: NVDA:NASDAQ
+[Market Agent] Searching finance: NVDA:NASDAQ
+[News Agent] Searching news for NVIDIA
+[Market Agent] Finance MCP response received
+[News Agent] MCP response type: dict
+[News Agent] Found 100 search results
+[News Agent] Selected 12 candidates
+[News Agent] Candidate 1: NVDA Stock Is Back As Morgan Stanley’s Top Pick – All AI Trends Play To Nvidia’s ‘Strengths,’ Says Analyst | domain=tradingview.com | score=21.1 | investigation=4.2 | recency=8.0
+[News Agent] Candidate 2: Nvidia stock hits new all-time high, market cap at $5.7 trillion | domain=finance.yahoo.com | score=20.7 | investigation=4.4 | recency=8.0
+[News Agent] Candidate 3: Nvidia Stock Price Forecast: Stock Expected to Challenge $300 as Largest-Ever Buyback Begins | domain=tradingkey.com | score=19.9 | investigation=4.8 | recency=8.0
+[News Agent] Candidate 4: Nvidia's bet that its chips can finance the AI boom gets a Wall Street reality check | domain=reuters.com | score=18.9 | investigation=2.0 | recency=8.0
+[News Agent] Candidate 5: I Correctly Predicted Nvidia Would Overtake Apple in Stock Buybacks and Dividends. Here's the Better Buy Now. | domain=fool.com | score=18.7 | investigation=3.0 | recency=8.0
+[News Agent] Candidate 6: Amazon seeks to offload $8bn of Nvidia chips to investors | domain=ft.com | score=18.7 | investigation=2.0 | recency=8.0
+[News Agent] Candidate 7: Nvidia Hits Record High, Wall Street Still Sees Up to 99% Upside | domain=beincrypto.com | score=15.9 | investigation=1.6 | recency=9.0
+[News Agent] Candidate 8: Dow and NASDAQ rally as NVIDIA hits new intraday high | domain=foxbusiness.com | score=15.5 | investigation=2.4 | recency=8.0
+[News Agent] Candidate 9: Nvidia's revenue and profits more than double in latest earnings report | domain=cbsnews.com | score=13.5 | investigation=5.4 | recency=1.0
+[News Agent] Candidate 10: Earnings call transcript: NVIDIA beats Q2 2026 estimates as AI demand stays hot | domain=investing.com | score=13.5 | investigation=4.4 | recency=1.0
+[News Agent] Candidate 11: Nvidia's latest record earnings fail to impress investors | domain=bbc.com | score=11.3 | investigation=3.0 | recency=1.0
+[News Agent] Candidate 12: Nvidia adds more than $400 billion in value after blowout earnings boost AI confidence | domain=cnbc.com | score=11.1 | investigation=2.2 | recency=1.0
+[News Agent] Scraping candidate 1/12: NVDA Stock Is Back As Morgan Stanley’s Top Pick – All AI Trends Play To Nvidia’s ‘Strengths,’ Says Analyst
+[Company Agent] MCP response received
+[News Agent] Scrape successful (1/5) - 4293 chars
+[News Agent] Scraping candidate 2/12: Nvidia stock hits new all-time high, market cap at $5.7 trillion
+[News Agent] Scrape successful (2/5) - 2293 chars
+[News Agent] Scraping candidate 3/12: Nvidia Stock Price Forecast: Stock Expected to Challenge $300 as Largest-Ever Buyback Begins
+[News Agent] Scrape successful (3/5) - 7988 chars
+[News Agent] Scraping candidate 4/12: Nvidia's bet that its chips can finance the AI boom gets a Wall Street reality check
+[News Agent] Candidate failed: Client error '401 HTTP Forbidden' for url 'https://www.reuters.com/legal/transactional/nvidias-bet-that-its-chips-can-finance-ai-boom-gets-wall-street-reality-check-2026-10-01/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+[News Agent] Scraping candidate 5/12: I Correctly Predicted Nvidia Would Overtake Apple in Stock Buybacks and Dividends. Here's the Better Buy Now.
+[News Agent] Scrape successful (4/5) - 5008 chars
+[News Agent] Scraping candidate 6/12: Amazon seeks to offload $8bn of Nvidia chips to investors
+[News Agent] Candidate failed: Client error '403 Forbidden' for url 'https://www.ft.com/content/97d8d346-519e-48fb-8df8-66cf5f12ef62?syn-25a6b1a6=1'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+[News Agent] Scraping candidate 7/12: Nvidia Hits Record High, Wall Street Still Sees Up to 99% Upside
+[News Agent] Candidate failed: Client error '403 Forbidden' for url 'https://beincrypto.com/nvidia-stock-record-high-wall-street-price-targets/'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+[News Agent] Scraping candidate 8/12: Dow and NASDAQ rally as NVIDIA hits new intraday high
+[News Agent] Scrape successful (5/5) - 1326 chars
+[News Agent] Successfully scraped: 5
+[News Agent] Failed candidates: 3
+[News Agent] Candidates attempted: 8
+
+============================================================
+[Evidence Agent] LLM-based evidence extraction
+============================================================
+[Evidence Agent] Processing 5 news articles
+[Evidence Agent] Article 1: 1 LLM chunks
+[Evidence Agent] Article 2: 1 LLM chunks
+[Evidence Agent] Article 3: 1 LLM chunks
+[Evidence Agent] Article 4: 1 LLM chunks
+[Evidence Agent] Article 5: 1 LLM chunks
+[Evidence Agent] News evidence extracted: 36
+[Evidence Agent] Market evidence extracted: 1
+[Evidence Agent] Company evidence extracted: 0
+
+[Evidence Agent] Final evidence statistics
+Total evidence: 37
+News: 36
+Market: 1
+Company: 0
+
+Claim types:
+  analyst_action: 2
+  business_event: 2
+  corporate_action: 6
+  financial_metric: 11
+  guidance: 3
+  market_observation: 7
+  reported_claim: 1
+  risk: 1
+  valuation_metric: 4
+[Cause Agent] Investigation intent: cause_analysis
+[Cause Agent] Starting cause analysis
+[Cause Agent] Validated 5 causes
+  - market_sentiment (2 evidence, confidence=0.7)
+  - analyst_activity (2 evidence, confidence=0.6)
+  - valuation (2 evidence, confidence=0.5)
+  - business_event (2 evidence, confidence=0.5)
+  - market_conditions (2 evidence, confidence=0.4)
+[Risk Agent] Starting risk analysis
+[Risk Agent] Validated 4 risks
+  - valuation (1 evidence, confidence=0.9)
+  - market_volatility (1 evidence, confidence=0.8)
+  - financial (2 evidence, confidence=0.9)
+  - business (2 evidence, confidence=0.9)
+
+============================================================
+[Synthesis Agent] Starting synthesis
+============================================================
+[Synthesis] Investigation intent: cause_analysis
+[Synthesis] Evidence Count: 37
+[Synthesis] News: 36
+[Synthesis] Market: 1
+[Synthesis] Company: 0
+[Synthesis] Cause analysis requested: True
+[Synthesis] Evidence index contains 37 records.
+[Synthesis] Validated cause records: 5
+[Synthesis] Validated risk records: 4
+[Synthesis Validation] Rejected unsupported causal/predictive finding: Nvidia announced a record $150 billion share repurchase authorization, which may have been perceived positively initially but could have led to profit-taking afterward.
+
+[Synthesis Agent] Final report generated
+[Synthesis] Cause count: 5
+[Synthesis] Risk count: 4
+[Synthesis] Findings: 4
+
+[Audit Agent] Building investigation audit
+[Audit Agent] Investigation ID: INV-A0D1EEFF4697
+[Audit Agent] Evidence records: 37
+[Audit Agent] Cause records: 5
+[Audit Agent] Risk records: 4
+
+Supervisor:
+Company: NVIDIA
+Intent: cause_analysis
+Price direction: down
+
+News:
+100 results
+12 candidates
+5 article records
+5 successful, 3 failed, 8 attempted
+
+Evidence:
+Total evidence: 37
+News: 36
+Market: 1
+Company: 0
+
+Claim types:
+analyst_action: 2
+business_event: 2
+corporate_action: 6
+financial_metric: 11
+guidance: 3
+market_observation: 7
+reported_claim: 1
+risk: 1
+valuation_metric: 4
+
+Cause Agent:
+Validated 5 causes
+- market_sentiment
+  Description: Nvidia shares gained in morning trade to hit a fresh record high, which may have influenced subsequent market sentiment leading to a price decline later.
+  Evidence: E003, E009
+  Confidence: 0.7
+- analyst_activity
+  Description: Morgan Stanley reinstated Nvidia as its ‘Top Pick’ in semiconductors and maintained an ‘Overweight’ rating, which may have initially boosted investor confidence before the stock fell.
+  Evidence: E001, E002
+  Confidence: 0.6
+- valuation
+  Description: Nvidia's stock price has been fluctuating around significant levels, with repeated tests of the $230 level, which may have contributed to volatility and subsequent declines.
+  Evidence: E018, E019
+  Confidence: 0.5
+- business_event
+  Description: Nvidia announced a record $150 billion share repurchase authorization, which may have been perceived positively initially but could have led to profit-taking afterward.
+  Evidence: E014, E022
+  Confidence: 0.5
+- market_conditions
+  Description: The overall market conditions may have influenced Nvidia's stock movement, as it coincided with broader market trends affecting tech stocks.
+  Evidence: E008, E028
+  Confidence: 0.4
+
+Risk Agent:
+Validated 4 risks
+- valuation
+  Description: Nvidia's forward P/E ratio is 24.6, while Apple's is 38.3.
+  Evidence: E031
+  Confidence: 0.9
+- market_volatility
+  Description: Nvidia's stock price has repeatedly tested the $230 level to the upside.
+  Evidence: E018
+  Confidence: 0.8
+- financial
+  Description: Nvidia expects sales of between $105.8 billion and $110.1 billion for its third quarter.
+  Evidence: E011, E012
+  Confidence: 0.9
+- business
+  Description: Nvidia authorized a $150 billion increase to its share repurchase program, bringing the total to $235 billion.
+  Evidence: E022, E015
+  Confidence: 0.9
+
+Synthesis:
+Evidence Count: 37
+Cause Count: 5
+Risk Count: 4
+News: 36
+Market: 1
+Company: 0
+
+Final report:
+summary: NVIDIA's stock experienced a decline following a period of record highs, influenced by various market sentiments and business developments.
+
+key findings:
+1. Nvidia shares gained in morning trade to hit a fresh record high of over $237, which may have influenced subsequent market sentiment leading to a price decline later. (E003, E009)
+2. Morgan Stanley reinstated Nvidia as its ‘Top Pick’ in semiconductors and maintained an ‘Overweight’ rating, which may have initially boosted investor confidence before the stock fell. (E001, E002)
+3. Nvidia's stock price has been fluctuating around significant levels, with repeated tests of the $230 level, which may have contributed to volatility and subsequent declines. (E018, E019)
+4. The overall market conditions may have influenced Nvidia's stock movement, as it coincided with broader market trends affecting tech stocks. (E008, E028)
+
+cause_summary: The observed decline in NVIDIA's stock price coincided with a mix of positive analyst ratings and record highs, followed by potential profit-taking and broader market influences.
+
+risk_summary: The evidence identifies valuation, market_volatility, financial, business risks.
+
+Validation:
+- Unique IDs: PASS
+- Evidence required fields: PASS
+- All evidence source_type valid: PASS
+
+Evidence Statistics:
+News    -> Report: 36 | Actual: 36
+Market  -> Report: 1 | Actual: 1
+Company -> Report: 0 | Actual: 0
+- Evidence stats: PASS
+- Causes: PASS (5 validated)
+- Cause count: PASS
+- Cause deduplication: PASS
+- Risks: PASS (4 validated)
+- Risk count: PASS
+- Risk deduplication: PASS
+- Risk language: PASS
+- Report summary: PASS
+- Evidence count: PASS
+- Report findings: PASS
+- Cause summary: PASS
+- Risk summary: PASS
+- Trace: PASS
+  Pipeline agents present: 5/5
+  News/market/company agent trace entries: not explicitly recorded
+- Cause trace: PASS - cause analyzer completed
+- Causal language: PASS
+- Predictive language: PASS
+- Investment advice: PASS
+- Errors: PASS
+
+======================================================================
+Overall: PASS
+======================================================================

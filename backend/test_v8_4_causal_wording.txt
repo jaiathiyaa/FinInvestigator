@@ -1,0 +1,250 @@
+
+======================================================================
+FININVESTIGATOR - VERSION 8.4 GRAPH TEST
+======================================================================
+
+Query: What caused NVIDIA shares to rise?
+[Supervisor] Query: What caused NVIDIA shares to rise?
+[Supervisor] Company: What caused NVIDIA to
+[Supervisor] Intent: cause_analysis
+[Supervisor] Price direction: up
+[Company Agent] Investigating What caused NVIDIA to
+[Market Agent] Resolving stock identity for What caused NVIDIA to
+Company match method: substring
+[Market Agent] Stock resolver error: (psycopg.errors.UniqueViolation) duplicate key value violates unique constraint "stock_entities_finance_query_key"
+DETAIL:  Key (finance_query)=(NVDA:NASDAQ) already exists.
+[SQL: INSERT INTO stock_entities (user_input, canonical_name, ticker, exchange, finance_query, country, currency, resolution_method, confidence, verified_at) VALUES (%(user_input)s::VARCHAR, %(canonical_name)s::VARCHAR, %(ticker)s::VARCHAR, %(exchange)s::VARCHAR, %(finance_query)s::VARCHAR, %(country)s::VARCHAR, %(currency)s::VARCHAR, %(resolution_method)s::VARCHAR, %(confidence)s, %(verified_at)s::TIMESTAMP WITH TIME ZONE) RETURNING stock_entities.id, stock_entities.created_at, stock_entities.updated_at]
+[parameters: {'user_input': 'what caused nvidia to', 'canonical_name': 'NVIDIA Corp', 'ticker': 'NVDA', 'exchange': 'NASDAQ', 'finance_query': 'NVDA:NASDAQ', 'country': None, 'currency': None, 'resolution_method': 'web_regex', 'confidence': 0.99, 'verified_at': datetime.datetime(2026, 10, 3, 15, 9, 29, 75937, tzinfo=datetime.timezone.utc)}]
+(Background on this error at: https://sqlalche.me/e/21/gkpj)
+[News Agent] Searching news for What caused NVIDIA to
+[Company Agent] MCP response received
+[News Agent] MCP response type: dict
+[News Agent] Found 75 search results
+[News Agent] Selected 12 candidates
+[News Agent] Candidate 1: Nvidia stock on track to end week down more than 10% amid investor concerns over AI valuations | domain=finance.yahoo.com | score=13.0 | investigation=3.6 | recency=1.0
+[News Agent] Candidate 2: Nvidia's latest record earnings fail to impress investors | domain=bbc.com | score=12.8 | investigation=3.0 | recency=1.0
+[News Agent] Candidate 3: After Months of Calm, Nvidia Earnings Could Spark a Big Stock Market Move | domain=investopedia.com | score=12.2 | investigation=4.0 | recency=1.0
+[News Agent] Candidate 4: Why Nvidia stock is rallying another 4% early on Monday | domain=tradingview.com | score=11.8 | investigation=2.6 | recency=1.0
+[News Agent] Candidate 5: Nvidia Stock Retail Traders Are Getting Bearish Days Ahead Of Q4 Print: What's Causing Jitters? | domain=stocktwits.com | score=11.7 | investigation=2.8 | recency=1.0
+[News Agent] Candidate 6: Nvidia is Poised to Make "The Largest Investment We've Ever Made." Here's What It Means for Investors | domain=fool.com | score=11.7 | investigation=2.0 | recency=1.0
+[News Agent] Candidate 7: Nvidia's stock has started to come alive. Here's 3 reasons why it can continue | domain=cnbc.com | score=11.4 | investigation=1.8 | recency=1.0
+[News Agent] Candidate 8: Has NVIDIA and other AI stocks caused the Nasdaq to become overvalued? (Hint: not even close!) | domain=marketindex.com.au | score=10.9 | investigation=2.6 | recency=1.0
+[News Agent] Candidate 9: Nvidia news: Loop Capital says Jensen Huang-led company's stock could jump 75% – here are the reasons it g | domain=m.economictimes.com | score=10.6 | investigation=3.0 | recency=1.0
+[News Agent] Candidate 10: What is DeepSeek, and why is it causing Nvidia and other stocks to slump? | domain=cbsnews.com | score=10.1 | investigation=1.8 | recency=1.0
+[News Agent] Candidate 11: Nvidia's Recent Stock Drop: Causes and Implications for Investors | domain=valuethemarkets.com | score=9.4 | investigation=2.6 | recency=1.0
+[News Agent] Candidate 12: Asian shares advance, tracking a Wall St rally led by Nvidia | domain=asahi.com | score=8.7 | investigation=2.6 | recency=1.0
+[News Agent] Scraping candidate 1/12: Nvidia stock on track to end week down more than 10% amid investor concerns over AI valuations
+[News Agent] Scrape successful (1/5) - 2832 chars
+[News Agent] Scraping candidate 2/12: Nvidia's latest record earnings fail to impress investors
+[News Agent] Scrape successful (2/5) - 4146 chars
+[News Agent] Scraping candidate 3/12: After Months of Calm, Nvidia Earnings Could Spark a Big Stock Market Move
+[News Agent] Scrape successful (3/5) - 6030 chars
+[News Agent] Scraping candidate 4/12: Why Nvidia stock is rallying another 4% early on Monday
+[News Agent] Scrape successful (4/5) - 3273 chars
+[News Agent] Scraping candidate 5/12: Nvidia Stock Retail Traders Are Getting Bearish Days Ahead Of Q4 Print: What's Causing Jitters?
+[News Agent] Candidate failed: Client error '403 Forbidden' for url 'https://stocktwits.com/news-articles/markets/equity/nvidia-stock-retail-traders-are-getting-bearish-days-ahead-of-q4-print-what-s-causing-jitters/cZRZsYTR4Do'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403
+[News Agent] Scraping candidate 6/12: Nvidia is Poised to Make "The Largest Investment We've Ever Made." Here's What It Means for Investors
+[News Agent] Scrape successful (5/5) - 3499 chars
+[News Agent] Successfully scraped: 5
+[News Agent] Failed candidates: 1
+[News Agent] Candidates attempted: 6
+
+============================================================
+[Evidence Agent] LLM-based evidence extraction
+============================================================
+[Evidence Agent] Processing 5 news articles
+[Evidence Agent] Article 1: 1 LLM chunks
+[Evidence Agent] Article 2: 1 LLM chunks
+[Evidence Agent] Article 3: 1 LLM chunks
+[Evidence Agent] Article 4: 1 LLM chunks
+[Evidence Agent] Article 5: 1 LLM chunks
+[Evidence Agent] News evidence extracted: 65
+[Evidence Agent] Market evidence extracted: 0
+[Evidence Agent] Company evidence extracted: 0
+
+[Evidence Agent] Final evidence statistics
+Total evidence: 65
+News: 65
+Market: 0
+Company: 0
+
+Claim types:
+  analyst_action: 1
+  business_event: 4
+  corporate_action: 1
+  executive_statement: 6
+  financial_metric: 22
+  guidance: 4
+  market_observation: 9
+  reported_claim: 16
+  valuation_metric: 2
+[Cause Agent] Investigation intent: cause_analysis
+[Cause Agent] Starting cause analysis
+[Cause Agent] Validated 5 causes
+  - business_growth (2 evidence, confidence=0.85)
+  - market_sentiment (1 evidence, confidence=0.75)
+  - capital_allocation (1 evidence, confidence=0.8)
+  - business_event (1 evidence, confidence=0.7)
+  - valuation (1 evidence, confidence=0.65)
+[Risk Agent] Starting risk analysis
+[Risk Agent] Rejected records:
+  - risk_1:rejected:predictive_language:is expected to
+  - risk_2:rejected:predictive_language:could 
+[Risk Agent] Validated 4 risks
+  - market_volatility (3 evidence, confidence=0.9)
+  - business (3 evidence, confidence=0.8)
+  - financial (2 evidence, confidence=0.9)
+  - valuation (1 evidence, confidence=0.8)
+
+============================================================
+[Synthesis Agent] Starting synthesis
+============================================================
+[Synthesis] Investigation intent: cause_analysis
+[Synthesis] Evidence Count: 65
+[Synthesis] News: 65
+[Synthesis] Market: 0
+[Synthesis] Company: 0
+[Synthesis] Cause analysis requested: True
+[Synthesis] Evidence index contains 65 records.
+[Synthesis] Validated cause records: 5
+[Synthesis] Validated risk records: 4
+[Synthesis Validation] Unsafe causal summary detected.
+
+[Synthesis Agent] Final report generated
+[Synthesis] Cause count: 5
+[Synthesis] Risk count: 4
+[Synthesis] Findings: 5
+
+[Audit Agent] Building investigation audit
+[Audit Agent] Investigation ID: INV-E3AD1FA974A5
+[Audit Agent] Evidence records: 65
+[Audit Agent] Cause records: 5
+[Audit Agent] Risk records: 4
+
+Supervisor:
+Company: What caused NVIDIA to
+Intent: cause_analysis
+Price direction: up
+
+News:
+75 results
+12 candidates
+5 article records
+5 successful, 1 failed, 6 attempted
+
+Evidence:
+Total evidence: 65
+News: 65
+Market: 0
+Company: 0
+
+Claim types:
+analyst_action: 1
+business_event: 4
+corporate_action: 1
+executive_statement: 6
+financial_metric: 22
+guidance: 4
+market_observation: 9
+reported_claim: 16
+valuation_metric: 2
+
+Cause Agent:
+Validated 5 causes
+- business_growth
+  Description: Nvidia reported first-quarter revenue of $81.6 billion, up 85% on the year, and net income more than tripled to $58.3 billion, indicating strong business growth.
+  Evidence: E008, E009
+  Confidence: 0.85
+- market_sentiment
+  Description: Analysts at DA Davidson noted that OpenAI’s planned fundraising round of up to $100 billion could improve sentiment toward companies closely linked to the AI developer, which coincided with Nvidia's stock rise.
+  Evidence: E043
+  Confidence: 0.75
+- capital_allocation
+  Description: Nvidia announced an £80 billion share buyback programme, which was reported alongside the rise in its stock price, suggesting a positive signal to investors regarding capital allocation.
+  Evidence: E011
+  Confidence: 0.8
+- business_event
+  Description: Nvidia's CEO Jensen Huang stated they will invest a great deal of money in OpenAI, which was reported alongside the stock's upward movement, indicating a significant business event.
+  Evidence: E050
+  Confidence: 0.7
+- valuation
+  Description: Nvidia's price/earnings-to-growth (PEG) ratio of 0.8 suggests it may be undervalued, which could be associated with the stock's rise as investors seek undervalued opportunities.
+  Evidence: E059
+  Confidence: 0.65
+
+Risk Agent:
+Validated 4 risks
+- market_volatility
+  Description: Nvidia's stock extended its recent rally early on Monday, following a 7.9% gain on Friday, which snapped a five-day losing streak.
+  Evidence: E039, E040, E041
+  Confidence: 0.9
+- business
+  Description: Nvidia announced a landmark strategic partnership with OpenAI last September, which includes significant investment in AI infrastructure.
+  Evidence: E044, E045, E053
+  Confidence: 0.8
+- financial
+  Description: Nvidia has a market cap of $5.6 trillion, indicating substantial financial strength.
+  Evidence: E056, E057
+  Confidence: 0.9
+- valuation
+  Description: Nvidia has a price/earnings-to-growth (PEG) ratio of 0.8, which is considered undervalued.
+  Evidence: E059
+  Confidence: 0.8
+
+Synthesis:
+Evidence Count: 65
+Cause Count: 5
+Risk Count: 4
+News: 65
+Market: 0
+Company: 0
+
+Final report:
+summary: The collected evidence identifies several developments associated with the observed stock movement. The evidence does not independently establish that any single development caused the entire price movement.
+
+key findings:
+1. Nvidia reported first-quarter revenue of $81.6 billion, up 85% on the year, and net income more than tripled to $58.3 billion, indicating strong business growth. (E008, E009)
+2. Analysts at DA Davidson noted that OpenAI’s planned fundraising round of up to $100 billion could improve sentiment toward companies closely linked to the AI developer, which coincided with Nvidia's stock rise. (E043)
+3. Nvidia announced an £80 billion share buyback programme, which was reported alongside the rise in its stock price, suggesting a positive signal to investors regarding capital allocation. (E011)
+4. Nvidia's CEO Jensen Huang stated they will invest a great deal of money in OpenAI, which was reported alongside the stock's upward movement, indicating a significant business event. (E050)
+5. Nvidia's price/earnings-to-growth (PEG) ratio of 0.8 suggests it may be undervalued, which could be associated with the stock's rise as investors seek undervalued opportunities. (E059)
+
+cause_summary: The rise in NVIDIA shares was associated with strong financial performance, positive market sentiment regarding AI investments, and strategic business announcements.
+
+risk_summary: The evidence identifies market_volatility, business, financial, valuation risks.
+
+Validation:
+- Unique IDs: PASS
+- Evidence required fields: PASS
+- All evidence source_type valid: PASS
+
+Evidence Statistics:
+News    -> Report: 65 | Actual: 65
+Market  -> Report: 0 | Actual: 0
+Company -> Report: 0 | Actual: 0
+- Evidence stats: PASS
+- Causes: PASS (5 validated)
+- Cause count: PASS
+- Cause deduplication: PASS
+- Risks: PASS (4 validated)
+- Risk count: PASS
+- Risk deduplication: PASS
+- Risk language: PASS
+- Report summary: PASS
+- Evidence count: PASS
+- Report findings: PASS
+- Cause summary: PASS
+- Risk summary: PASS
+- Trace: PASS
+  Pipeline agents present: 5/5
+  News/market/company agent trace entries: not explicitly recorded
+- Cause trace: PASS - cause analyzer completed
+- Causal language: PASS
+- Predictive language: PASS
+- Investment advice: PASS
+- Errors: PASS
+
+======================================================================
+Overall: PASS
+======================================================================
